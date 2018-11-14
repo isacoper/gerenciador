@@ -6,6 +6,7 @@ class CreateTarefas < ActiveRecord::Migration[5.1]
       t.date :inicio
       t.date :previsao
       t.string :status
+      
 
       t.timestamps
     end

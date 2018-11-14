@@ -4,7 +4,7 @@ class TarefasController < ApplicationController
   # GET /tarefas
   # GET /tarefas.json
   def index
-    @tarefas = Tarefa.all
+    @tarefas = current_user.tarefas.all
   end
 
   # GET /tarefas/1
@@ -24,7 +24,7 @@ class TarefasController < ApplicationController
   # POST /tarefas
   # POST /tarefas.json
   def create
-    @tarefa = Tarefa.new(tarefa_params)
+    @tarefa = Tarefa.new(tarefa_params.merge(user: current_user))
 
     respond_to do |format|
       if @tarefa.save
